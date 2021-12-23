@@ -1,0 +1,46 @@
+name:                du
+version:             0.1.0.0
+license:             BSD3
+author:              "initprism"
+maintainer:          "initprism@google.com"
+copyright:           "2021 initprism"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+dependencies:
+- base >= 4.7 && < 5
+- mtl
+- filepath
+- directory
+- unix-compat
+- extra
+- optparse-applicative
+- text
+- text-show
+
+library:
+  source-dirs: src
+
+executables:
+  du-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - du
+
+tests:
+  du-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - du
